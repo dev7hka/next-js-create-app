@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { Analytics } from '@vercel/analytics/react';
 
 const name = 'H. Kerim Arslan';
 export const siteTitle = 'Next.js Create App Site';
@@ -58,7 +59,10 @@ export default function Layout({ children, home }) {
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main>
+        {children}
+        <Analytics />
+        </main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">← Back to home</Link>
